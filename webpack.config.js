@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 module.export = {
   devtool: "cheap-module-eval-source-map",
@@ -7,5 +7,17 @@ module.export = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
     publicPath: ""
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/
+      }
+    ]
   }
 };
